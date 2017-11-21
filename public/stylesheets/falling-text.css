@@ -1,0 +1,73 @@
+/* ===================== Falling Text Effect */
+
+.align-title-with-effect {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.falling-text-container {
+  position: relative;
+  display: flex;
+  height: 24px;
+  width: 100%;
+  flex-direction: row-reverse;
+}
+
+.moveit {
+  position: absolute;
+  width: 140px;
+  height: 32px;
+  opacity: 0;
+  animation: move 4s linear 1s infinite;
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: .5px;
+}
+
+.moveit:first-child {
+  animation: move 4s ease-out 1s infinite;
+}
+
+.moveit:nth-child(2) {
+  animation: move 3s linear 2s infinite;
+}
+
+@keyframes move {
+  25% {
+    opacity: 1;
+
+  }
+  33% {
+    opacity: 1;
+    /*transform: translateY(30px); */
+  }
+  67% {
+    opacity: 1;
+   /* transform: translateY(50px); */
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(80px) scale3d(1, 1, 0.5);
+  }
+}
+
+.text {
+  display: block;
+  margin-top: 75px;
+  margin-left: -30px;
+  font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+  white-space: nowrap;
+  opacity: .25;
+  animation: pulse 2s linear alternate infinite;
+}
+
+@keyframes pulse {
+  to {
+    opacity: 1;
+  }
+}

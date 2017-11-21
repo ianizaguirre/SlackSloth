@@ -9,8 +9,10 @@ body {
   background-color: #fff;  /*#F07F54;*/
 }
 
-a {
-	text-decoration: none;
+a, a:visited{
+    text-decoration: none;
+    -webkit-transition: all 0.1s linear; 
+    transition: all 0.1s linear;
 }
 
 .header-wrapper {
@@ -91,12 +93,9 @@ p {
 }
 
 
-
-
 /* --- Entry */
 .entry-block {
 	padding: 25px 50px 29px 50px;
-	text-align: center;
 }
 
 
@@ -164,13 +163,14 @@ p {
 }
 /* --- col ===> Guts */
 .col-big h4, .col-small h4 {
- 	color: #fff;
- 	margin: 0;
+  color: #fff;
+  margin: 0;
   font-weight: 300;
   font-size: 22px;
   line-height: 22px;
+  display: flex;
+  flex-direction: column-reverse;
   padding: 25px;
-  align-self: flex-end;
 }
 .content-box-top-big {
 	height: 310px;
@@ -196,9 +196,17 @@ p {
 }
 
 
-
+/* ---- Real Sloth */
+.real-sloth-wrapper {
+  position: absolute;
+  margin-top: -86px;
+  z-index: 4;
+  left: -75px;
+}
 /* --- What We Do */
 .what-we-do {
+  position: relative;
+  z-index: 5;
 	padding: 50px;
 }
 
