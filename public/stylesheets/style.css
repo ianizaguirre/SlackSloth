@@ -98,7 +98,21 @@ p {
 	padding: 25px 50px 29px 50px;
 }
 
-
+/* ---- Pattern Overlay */
+.bg-overlay::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  background: rgba(245,245,245,0.25);
+  bottom: 0;
+}
+.bg-overlay {
+  background-image: url("../images/plus-sign.png");
+  background-size: 1.5em 1.5em;
+  position: relative;
+}
 
 /* --- Splash Backgrounds */
 .splash-light {

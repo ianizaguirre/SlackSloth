@@ -6,6 +6,7 @@
   margin: 0 auto;
   width: 50%;
   max-width: 350px;
+  position: relative; /* to make background pattern opacity not effect it */
 }
 
 .column-this {
@@ -27,6 +28,7 @@
   
   label {
     color: #333;
+    font-weight: 900;
 /*    display:block;
     position:absolute;
     top:0.5em;

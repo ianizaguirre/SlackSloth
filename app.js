@@ -8,6 +8,17 @@ const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 
+const session 		 = require("express-session");
+const passport 		 = require("passport");
+
+
+
+/* --- Run this without needing to call it ---- */
+require("./config/mongoose-setup");
+require("./config/passport-setup");
+
+/* --------------------- */
+
 
 const app = express();
 
@@ -18,6 +29,10 @@ app.set('view engine', 'ejs');
 // default value for title local
 app.locals.title = 'Slack Sloth';
 
+
+/* ----------- Global MiddleWare ------------------ */
+
+
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
@@ -27,14 +42,45 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
+
+app.use(
+        session ({
+        resave: true,
+        saveUninitialized: true,
+        secret: "this string is to avoid a depreciation warning"
+    })
+);
+
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+/* ----------------END Global MiddleWare------------------------------ */
+
+
+
+
 /*---Routes-------------------------------------------------------------*/
 // const index = require('./routes/index');
 // app.use('/', index);
 const routes = require('./routes/index');
-
 app.use('/', routes);
 
+
+const myUserRouter = require("./routes/user-router");
+app.use(myUserRouter);
+
 /*----------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
 
 
 
