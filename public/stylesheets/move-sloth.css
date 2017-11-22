@@ -1,0 +1,44 @@
+/*
+<div class="move-sloth"><img src="./images/Sloth.png" class="flip-sloth" /></div> <!-- move-sloth flip-sloth -->
+
+*/
+
+/* ============== Moving Sloth */
+.flip-sloth {
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
+
+.move-sloth {
+  animation: move 233s;
+  -webkit-animation: move 238s;
+    float: left;
+}
+
+@keyframes move {
+  from {
+    margin-left: 70%;
+  /*width: 90%; */ /*300*/
+  }
+
+  to {
+    margin-left: 0%;
+   /* width: 90%;*/
+  }
+}
+            
+@-webkit-keyframes move {
+  from {
+    margin-left: 70%;
+     /*width *300*/
+  }
+
+  to {
+    margin-left: 0%;
+/*    width: 90%; */  
+}
+}

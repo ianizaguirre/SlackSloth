@@ -18,6 +18,16 @@
 					<ul>
 							<div class="effect-container circleBehind">
 								<li><a href="/">Home</a></li>
+							
+
+								<% if (currentUser) { %>
+								<li><a href="/logout">Log Out</a></li>
+								<li class="user-email-nav-fancy"> <span class="user-email-nav"> <%= currentUser.email %></span> </li>
+								<% } else { %>
+								<li><a href="/signup">Sign Up</a></li>
+								 <% } %>
+
+
 							</div> <!-- Circle End -->
 					</ul>
 				</nav>

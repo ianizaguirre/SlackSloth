@@ -21,6 +21,7 @@ a, a:visited{
 }
 nav li {
 	list-style: none;
+  display: inline-block;
 }
 nav a {
     font-size: 22px;
@@ -29,6 +30,20 @@ nav a {
     letter-spacing: 3px;
     text-transform: uppercase;
 }
+
+.user-email-nav {
+    color: #F8582F;
+    font-size: 20px;
+    letter-spacing: 2px;
+    background: #f6f6f6;
+    padding: 4px;
+    border-radius: 2px;
+    font-weight: 900;
+}
+.user-email-nav-fancy::first-letter {
+  text-transform: capitalize;
+}
+
 
 
 /* ===========Nav Effect================== */

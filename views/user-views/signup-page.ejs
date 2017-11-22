@@ -1,31 +1,46 @@
-<h2> Sign Up </h2>
 
-<% if (typeof errorMessage !== "undefined") { %>
-  <p class="error-message">
-    <%= errorMessage %>
-  </p>
-<% } %>
+      <% if (typeof errorMessage !== "undefined") { %>
+        <p class="error-message">
+          <%= errorMessage %>
+        </p>
+      <% } %>
 
-<form id="form" method="post" action="/process-signup">
-  <label for="full-name-input"> Full Name </label>
-  <input  id="full-name-input" type="text" placeholder="e.g. Jon Snow"
-      name="signupFullName" />
-  <br />
+<div class="flex-container signup-container">
+  <h2 class="form-title"> Sign Up </h2>
 
-  <label for="email-input"> Email Address </label>
-  <input  id="email-input" type="email" placeholder="e.g. jon@winterfell.com"
-      name="signupEmail" />
-  <br />
+    <div class="flex-container">
 
-  <label for="password-input"> Password </label>
-  <input  id="password-input" type="password" placeholder="e.g. ygritte"
-      name="signupPassword" />
-  <br />
+      <form id="form" method="post" action="/process-signup">
 
-  <button> Sign Up </button>
-</form>
+        <div class="one-field-wrap">
+          <label for="full-name-input" class="label-wrap"> Full Name </label>
+          <input  id="full-name-input" type="text" placeholder="e.g. Mr Sloth"
+              name="signupFullName" class="input-style" />
+        </div> <!-- one-field-wrap -->
+       
+        <div class="one-field-wrap">
+          <label for="email-input" class="label-wrap"> Email Address </label>
+          <input  id="email-input" type="email" placeholder="e.g. sloth@slacksloth.com"
+              name="signupEmail" class="input-style" />
+        </div> <!-- one-field-wrap -->
 
+        <div class="one-field-wrap">
+          <label for="password-input" class="label-wrap"> Password </label>
+          <input  id="password-input" type="password" placeholder="e.g. @slothlover1"
+              name="signupPassword" class="input-style" />
+       </div> <!-- one-field-wrap -->
+
+      <div class="flex-container sign-up-btn-wrap">
+        <button class=" green-btn sqr-btn btn full-width-btn"> Sloth Me <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> </button>
+      </div>
+
+      </form>
+    </div> <!-- flex-container -->
+</div> <!-- flex-container signup-container -->
 <p>
   Already have an account?
   <a href="/login"> Log In </a>
 </p>
+
+<div class="empty-block"> <br /> </div>
+              

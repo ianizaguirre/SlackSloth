@@ -55,6 +55,17 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+app.use((req, res, next) => {
+    // Passport defines "req.user" if the user is logged in
+    // ("req.user" is the result of deserialize)
+    res.locals.currentUser = req.user;
+
+    // call "next()" to tell Express that we've finished
+    // (otherwise your browser will hang)
+    next();
+});
+
 /* ----------------END Global MiddleWare------------------------------ */
 
 
