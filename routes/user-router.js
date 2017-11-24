@@ -29,13 +29,9 @@ router.post('/process-login', controller.process_login );
 
 
 
-
-
-
-
-
-
-
-
+// Log Out 
 router.get('/logout', controller.logout );
+
+
+
 module.exports = router;

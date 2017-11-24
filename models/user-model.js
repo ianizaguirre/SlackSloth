@@ -5,7 +5,17 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 
-// new Schema({ schema },  { settings })
+/* ================================
+  This is the user-model that visitors
+  use to "Sign-Up".
+
+  This is connected to user-views-controller which
+  connects to signup-page.ejs
+================================ */
+
+
+
+
 const userSchema = new Schema(
   // 1st argument -> SCHEMA STRUCTURE
   {
@@ -20,12 +30,6 @@ const userSchema = new Schema(
           match: [/.+@.+/, "Emails need an @ sign."]
       },
       encryptedPassword: { type: String },
-
-      // facebook users
-      facebookID: { type: String },
-
-      // google users
-      googleID: { type: String },
 
 
       role: {
@@ -43,7 +47,12 @@ const userSchema = new Schema(
   }
 );
 
-const UserModel = mongoose.model("User", userSchema);
 
+
+
+
+
+
+const UserModel = mongoose.model("User", userSchema);
 
 module.exports = UserModel;

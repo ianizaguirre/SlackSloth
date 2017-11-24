@@ -174,7 +174,7 @@ exports.logout = (req, res) => {
 
 
 
-/*
+/* Template Example 
 
 
 exports.homepage = (req, res) => {
