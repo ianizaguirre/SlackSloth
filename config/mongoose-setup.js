@@ -3,7 +3,7 @@
 const mongoose = require("mongoose");
 
 
-mongoose.Promise = Promise;
+mongoose.Promise = global.Promise; // Tell Mongoose to use Es6 promises
 
 mongoose.connect("mongodb://localhost/sloth-users", { useMongoClient: true })
   .then(() => {

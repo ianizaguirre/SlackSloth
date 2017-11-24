@@ -3,7 +3,7 @@ const express = require("express");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const router = express.Router();
-const UserModel = require("../models/user-model");
+const SlothModel = require("../models/sloth-model");
 
 
 
@@ -20,6 +20,32 @@ exports.dashboard = (req, res) => {
 
   res.render('user-views/dashboard');
 };
+
+
+
+
+
+
+
+
+
+
+
+
+exports.createSlothModel = (req, res, next) => {
+
+
+const slackEntry = new SlothModel(req.body);
+
+slackEntry.save();
+ 
+
+
+
+
+}; // POST /createSlackEntry
+
+
 
 
 

@@ -10,6 +10,11 @@
 
 
 /* ===========Log In Form================== */
+/*h2.login-form-title {
+    margin: 0;
+    font-size: 28px;
+}*/
+
 
 .form-wrapper {
   justify-content: space-between;
