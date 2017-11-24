@@ -5,7 +5,7 @@ const passport = require("passport");
 const router = express.Router();
 const SlothModel = require("../models/sloth-model");
 
-
+const mongoose = require("mongoose");
 
 
 exports.dashboard = (req, res) => {
@@ -33,21 +33,29 @@ exports.dashboard = (req, res) => {
 
 
 exports.createSlothModel = (req, res, next) => {
+	const slackEntry = new SlothModel(req.body);
+
+		slackEntry
+			.save()
+			.then(slackEntry => {
+				res.json(slackEntry);
+			})
+	 		.catch(err => {
+	 			throw Error(err);
+	 		});
+	 	
+	console.log('It Worked!');
+
+}; // POST /createSlackModel Entry
 
 
-const slackEntry = new SlothModel(req.body);
 
-slackEntry.save();
- 
+// exports.createSlothModel = async (req, res ) => {
+// 	const slackEntry = new SlothModel(req.body);
+// 	await slackEntry.save();
+// 	console.log('It Worked!');
 
-
-
-
-}; // POST /createSlackEntry
-
-
-
-
+// }; // POST /createSlackEntry
 
 
 
