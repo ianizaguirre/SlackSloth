@@ -23,13 +23,13 @@ const Schema = mongoose.Schema;
 const slothSchema = new Schema(
 
   {
-      workspaceURL: {
+      slackTeamURL: {
           type: String,
           trim: true,
           required: "Tell us your workspace URL."
       },
 
-      email: {
+      slackTeamEmail: {
           type: String,
           match: [/.+@.+/, "Emails need an @ sign."]
       },

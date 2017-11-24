@@ -177,18 +177,6 @@ exports.logout = (req, res) => {
 
 
 
-exports.dashboard = (req, res) => {
-
-    if (!req.user) {
-        res.redirect("/");
-
-
-        // (prevents the rest of the code from running)
-        return;
-    }
-
-  res.render('user-views/dashboard');
-};
 
 
 

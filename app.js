@@ -72,14 +72,16 @@ app.use((req, res, next) => {
 
 
 /*---Routes-------------------------------------------------------------*/
-// const index = require('./routes/index');
-// app.use('/', index);
-const routes = require('./routes/index');
-app.use('/', routes);
+
+const index = require('./routes/index');
+app.use('/', index);
 
 
 const myUserRouter = require("./routes/user-router");
 app.use(myUserRouter);
+
+const mySlothRouter = require("./routes/sloth-router");
+app.use(mySlothRouter);
 
 /*----------------------------------------------------------------*/
 
