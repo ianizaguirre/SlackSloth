@@ -9,6 +9,10 @@ body {
   background-color: #fff;  /*#F07F54;*/
 }
 
+header {
+  border-bottom: 1px solid #eee;
+}
+
 a, a:visited{
     text-decoration: none;
     -webkit-transition: all 0.1s linear; 

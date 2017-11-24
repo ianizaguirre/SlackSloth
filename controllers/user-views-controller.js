@@ -174,6 +174,26 @@ exports.logout = (req, res) => {
 
 
 
+
+
+
+exports.dashboard = (req, res) => {
+  
+  res.render('user-views/dashboard');
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* Template Example 
 
 
@@ -181,7 +201,6 @@ exports.homepage = (req, res) => {
 	
 	res.render('index');
 };
-
 
 
 */

@@ -29,6 +29,13 @@ router.post('/process-login', controller.process_login );
 
 
 
+
+router.get('/slothboard', controller.dashboard );
+
+
+
+
+
 // Log Out 
 router.get('/logout', controller.logout );
 
