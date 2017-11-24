@@ -1,9 +1,4 @@
 
-      <% if (typeof errorMessage !== "undefined") { %>
-        <p class="error-message">
-          <%= errorMessage %>
-        </p>
-      <% } %>
 
 <div class="flex-container signup-container">
   <h2 class="form-title"> Sign Up </h2>
@@ -30,6 +25,12 @@
               name="signupPassword" class="input-style" />
        </div> <!-- one-field-wrap -->
 
+      <% if (typeof errorMessage !== "undefined") { %>
+        <div class="error-message">
+          <%= errorMessage %>
+        </div>
+      <% } %>
+
       <div class="flex-container sign-up-btn-wrap">
         <button class=" green-btn sqr-btn btn full-width-btn"> Sloth Me <i class="fa fa-thumbs-o-up" aria-hidden="true"></i> </button>
       </div>
@@ -37,10 +38,7 @@
       </form>
     </div> <!-- flex-container -->
 </div> <!-- flex-container signup-container -->
-<p>
-  Already have an account?
-  <a href="/login"> Log In </a>
-</p>
+
 
 <div class="empty-block"> <br /> </div>
               
