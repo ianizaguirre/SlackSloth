@@ -8,6 +8,8 @@ const SlothModel = require("../models/sloth-model");
 const mongoose = require("mongoose");
 
 
+
+
 exports.dashboard = (req, res) => {
 
     if (!req.user) {
@@ -20,12 +22,6 @@ exports.dashboard = (req, res) => {
 
   res.render('user-views/dashboard');
 };
-
-
-
-
-
-
 
 
 
@@ -45,6 +41,8 @@ exports.createSlothModel = (req, res, next) => {
 	 		});
 	 	
 	console.log('It Worked!');
+
+
 
 }; // POST /createSlackModel Entry
 
