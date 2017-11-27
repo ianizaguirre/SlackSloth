@@ -34,7 +34,7 @@ router.get('/slothboard', controller.fetchEntry );
 
 
 // Allow Users to Delete One Entry From "Fetch Entry" via Delete Button
-router.get('/slothboard/:prodId/delete', controller.fetchEntryDeleteOne );
+router.get('/entrys/:prodId/delete', controller.fetchEntryDeleteOne );
 
 
 
