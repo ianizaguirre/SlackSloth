@@ -10,17 +10,40 @@ const controller = require('../controllers/sloth-controller');
 
 
 
+// Step #1: Show the Slack Entry Form
 
 // Show the User Dashboard, if they are logged in.
 router.get('/slothboard', controller.dashboard );
 
 
 
+// Step #2: Process the new Slack Entry Submission 
 
 // Creates a "Slack Entry" 
 // When user input data and clicks "save", 
 // save their entry onto their dashboard.
 router.post('/process-slackInfoForm', controller.createSlothModel );
+
+
+
+
+
+
+
+
+
+
+
+// My attempt at "showing their Slack entry" that they just submitted
+
+router.get('/slothboard', controller.fetchEntry );
+
+
+
+
+
+
+
 
 
 

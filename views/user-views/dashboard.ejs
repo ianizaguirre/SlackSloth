@@ -2,15 +2,21 @@
 	<h2> SlothBoard </h2>
 
 	 Hello <%= currentUser.fullName %>
+	 Email: <%= currentUser.email %>
 	 <br />
 	 <br />
 
 
 	 <%- include('../mixins/_slackInfoForm'); %>
 
-<%= currentUser.email %>
-<%= currentUser.slackTeamURL %>
-<%= currentUser.slackTeamEmail %>
+	 <h3>INFO Below </h3>
+
+
+
+
+	<%- include('../mixins/_slackEntryList'); %>
+
+
 	 <br />
 	 <br />
 	 <br />

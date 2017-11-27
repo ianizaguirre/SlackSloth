@@ -1,8 +1,8 @@
 "use strict";
-const express = require("express");
-const bcrypt = require("bcrypt");
-const passport = require("passport");
-const router = express.Router();
+const express   = require("express");
+const bcrypt    = require("bcrypt");
+const passport  = require("passport");
+const router    = express.Router();
 const UserModel = require("../models/user-model");
 
 
@@ -56,8 +56,8 @@ exports.signup = (req, res) => {
 exports.process_signup = (req, res, next) => {
 
   const password = req.body.signupPassword;
-  const email = req.body.signupEmail;
-  const name = req.body.signupFullName;
+  const email    = req.body.signupEmail;
+  const name     = req.body.signupFullName;
 
     if (password === "" || email === "" || name === "") 
     {

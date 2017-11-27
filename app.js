@@ -1,21 +1,21 @@
 "use strict";
 
-const express      = require('express');
+const express          = require('express');
 
-const path         = require('path');
-const favicon      = require('serve-favicon');
-const logger       = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser   = require('body-parser');
-const layouts      = require('express-ejs-layouts');
+const path             = require('path');
+const favicon          = require('serve-favicon');
+const logger           = require('morgan');
+const cookieParser     = require('cookie-parser');
+const bodyParser       = require('body-parser');
+const layouts          = require('express-ejs-layouts');
 
-const flash = require('connect-flash');
+const flash            = require('connect-flash');
 const expressValidator = require('express-validator');
 
-const session 		 = require("express-session");
-const mongoose = require('mongoose');
-const MongoStore = require('connect-mongo')(session);
-const passport 		 = require("passport");
+const session          = require("express-session");
+const mongoose         = require('mongoose');
+const MongoStore       = require('connect-mongo')(session);
+const passport         = require("passport");
 
 
 

@@ -1,0 +1,33 @@
+<h2> Your Current Slack Entry List </h2>
+
+
+
+<ul>
+  <% slackEntry.forEach((oneEntry) => { %>
+    <li>
+      <h3> <%= oneEntry.slackTeamURL %> </h3>
+      <p> $<%= oneEntry.slackTeamEmail %> </p>
+      
+      <ul>
+
+        <li>
+          <a href="/Entrys/<%= oneEntry._id %>/edit">
+            Edit
+          </a>
+        </li>
+
+        <li>
+          <a href="/Entrys/<%= oneEntry._id %>/delete">
+            Delete (GET)
+          </a>
+        </li>
+
+        <li>
+          <form method="post" action="/Entrys/<%= oneEntry._id %>/delete">
+            Delete (POST)
+          </form>
+        </li>
+      </ul>
+    </li>
+  <% }) %>
+</ul>

@@ -1,8 +1,8 @@
 "use strict";
-const mongoose = require("mongoose");
+const mongoose  = require("mongoose");
 
-
-const Schema = mongoose.Schema;
+const UserModel = require("./user-model");
+const Schema    = mongoose.Schema;
 
 
 /* ================================
@@ -34,7 +34,13 @@ const slothSchema = new Schema(
           match: [/.+@.+/, "Emails need an @ sign."]
       },
 
-      encryptedPassword: { type: String }
+      encryptedPassword: { type: String },
+
+    user_id: { 
+    type: Schema.Types.ObjectId, 
+    ref: "UserModel"
+    //required: true
+  }
 
   },
 
