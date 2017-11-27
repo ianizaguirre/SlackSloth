@@ -1,5 +1,6 @@
 "use strict";
 const mongoose = require("mongoose");
+const validator = require('validator');
 
 
 const Schema = mongoose.Schema;
@@ -21,14 +22,22 @@ const userSchema = new Schema(
   {
       fullName: {
           type: String,
-          required: [true, "Tell us your name."]
+          required: [true, "Please tell us your name."],
+          trim: true
       },
 
       // normal login users
       email: {
           type: String,
-          match: [/.+@.+/, "Emails need an @ sign."]
+          unique: true,
+          lowercase: true,
+          trim: true,
+          validate: [validator.isEmail, 'Invalid Email Address'],
+          required: 'Please Supply an Email Address'
+          //match: [/.+@.+/, "Emails need an @ sign."]
       },
+
+
       encryptedPassword: { type: String },
 
 

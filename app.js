@@ -8,6 +8,8 @@ const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 
+const expressValidator = require('express-validator');
+
 const session 		 = require("express-session");
 const passport 		 = require("passport");
 
@@ -31,6 +33,9 @@ app.locals.title = 'Slack Sloth';
 
 
 /* ----------- Global MiddleWare ------------------ */
+
+// Exposes a bunch of methods for validating data. 
+app.use(expressValidator());
 
 
 // uncomment after placing your favicon in /public

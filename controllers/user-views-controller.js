@@ -97,7 +97,7 @@ exports.login = (req, res) => {
       return;
   }
 
-  res.render("user-views/login-page");
+  // res.render("user-views/login-page");
 };
 
 
