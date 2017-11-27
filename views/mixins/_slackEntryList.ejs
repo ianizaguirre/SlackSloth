@@ -5,8 +5,9 @@
 <ul>
   <% slackEntry.forEach((oneEntry) => { %>
     <li>
-      <h3> <%= oneEntry.slackTeamURL %> </h3>
-      <p> <%= oneEntry.slackTeamEmail %> </p>
+      <h3> Team URL: <%= oneEntry.slackTeamURL %>.Slack.com </h3>
+      <p> Email: <%= oneEntry.slackTeamEmail %> </p>
+      <p> Password: <%= oneEntry.encryptedPassword %> </p>
       
       <ul>
 
@@ -18,7 +19,7 @@
 
         <li>
           <a href="/entrys/<%= oneEntry._id %>/delete">
-            Delete (GET)
+            Delete
           </a>
         </li>
 

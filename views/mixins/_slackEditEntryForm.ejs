@@ -1,0 +1,39 @@
+<h2> Edit This Entry </h2>
+
+<!-- weird if statement with "typeof" to avoid an error -->
+<% if (typeof validationErrors !== "undefined") { %>
+  <ul class="error">
+    <!-- we cant do a forEach loop because "validationErrors" is an object -->
+
+    <% for (let field in validationErrors) { %>
+      <li> <%= validationErrors[field].message %> </li>
+    <% } %>
+  </ul>
+<% } %>
+
+
+<form method="post" action="/entrys/<%= entryDetails._id %>">
+
+  <label for="url-input"> Slack Team URL </label>
+  <input  id="url-input" type="text" placeholder="wynwood-tech" name="slackTeamURL" value="<%= entryDetails.slackTeamURL %>" />.Slack.com
+
+  <br />
+
+  <label for="email-input"> Email </label>
+  <input id="email-input" type="email" name="slackTeamEmail" value="<%= entryDetails.slackTeamEmail %>" />
+
+
+  <br />
+
+  <label for="password-input"> Password </label>
+  <input id="password-input" type="password" name="slackTeamPassword" value="<%= entryDetails.encryptedPassword %>" />
+
+
+
+  <br />
+
+  <button> Save Changes </button>
+</form>
+
+
+

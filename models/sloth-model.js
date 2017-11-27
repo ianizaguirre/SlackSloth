@@ -39,7 +39,9 @@ const slothSchema = new Schema(
     user_id: { 
     type: Schema.Types.ObjectId, 
     ref: "User" // Has to be name of collection in user-model
-    //required: true
+    // This user_id property is going to be used in sloth-controller
+    // as: 
+    //  SlothModel.find({user_id: req.user._id})
   }
 
   },

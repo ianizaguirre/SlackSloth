@@ -6,37 +6,6 @@ const router    = express.Router();
 const UserModel = require("../models/user-model");
 
 
-/*
-// ======= Express Validator , some properties. 
-//========= It does not need to be imported to use
-// ----- making some Validation Middleware 
-
-exports.validateRegister = (req, res, next ) => {
-  req.sanitizeBody('fullName');
-  req.checkBody('fullName', 'You must supply a name!').notEmpty();
-  req.checkBody('email', 'That Email is not valid').isEmail();
-  req.sanitizeBody('email').normalizeEmail({
-    remove_dots: false,
-    remove_extension: false,
-    gmail_remove_subaddress: false
-  });
-  req.checkBody('encryptedPassword', 'Password Cannot be Blank!').notEmpty();
-
-  const errors = req.validationErrors();
-  if (errors) {
-    req.flash('error', errors.map(err => err.msg));
-
-    res.render("user-views/signup-page", {message: req.flash("error") });
-    return; // stop the fn from running
-  }
-  next(); // there were no errors!
-};
-
-
-// ==========================
-
-*/
-
 // Step #1: Show the SIGNUP form
 exports.signup = (req, res) => {
     // redirect to home if you are already logged in

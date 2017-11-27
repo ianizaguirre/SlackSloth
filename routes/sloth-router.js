@@ -31,8 +31,17 @@ router.get('/slothboard', controller.fetchEntry );
 
 
 
+// Edit => Step: #1 => Show Edit Form
+// Allow Users to Edit One Entry From "Fetch Entry" via Edit Button
+router.get('/entrys/:prodId/edit', controller.fetchEntryEditOne );
+
+// Edit => Step: #2 => Process Edit Form
+router.post('/entrys/:prodId/', controller.fetchEntryProcessEdit );
 
 
+
+
+// Delete
 // Allow Users to Delete One Entry From "Fetch Entry" via Delete Button
 router.get('/entrys/:prodId/delete', controller.fetchEntryDeleteOne );
 

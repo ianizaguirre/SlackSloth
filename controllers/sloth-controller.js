@@ -84,7 +84,12 @@ exports.fetchEntry = (req, res, next) => {
 
 
 	SlothModel
-		.find()
+		.find(
+			{
+				user_id: req.user._id // Finds specific entries belonging to logged in user, 
+				// instead of showing "All" entries for ALL users on his dashboard.
+			}
+		)
 		.limit(25)
 		.sort({ dateAdded: -1 })
 		.exec()
@@ -116,6 +121,100 @@ exports.fetchEntry = (req, res, next) => {
 
 
 
+// STEP #1: show edit form
+exports.fetchEntryEditOne = (req, res, next) => {
+    // retrieve the document from the database
+    SlothModel.findById(req.params.prodId)
+      .then((productFromDb) => {
+          // create a local variable for the view to access the DB result
+          // (this is so we can pre-fill the form)
+          res.locals.entryDetails = productFromDb;
+
+          res.render('user-views/entry-edit-page');
+      })
+      .catch((err) => {
+          // render the error page with our error
+          next(err);
+      });
+}; // END => fetchEntryEditOne
+
+
+
+
+
+// STEP #2: receive edit submission
+exports.fetchEntryProcessEdit = (req, res, next) => {
+    // retrieve the document from the database
+    SlothModel.findById(req.params.prodId)
+      .then((productFromDb) => {
+          // update the document
+          productFromDb.set({
+       	    slackTeamURL: 		 req.body.slackTeamURL,
+		        slackTeamEmail:    req.body.slackTeamEmail,
+		        encryptedPassword: req.body.slackTeamPassword
+		        //user_id: 					 req.user._id
+          });                        
+              
+                   
+          // set up the "entryDetails" local variable in case
+          // we get validation errors and need to display the form again
+          res.locals.entryDetails = productFromDb;
+
+          // and then save the updates
+          // (return the promise of the next database operation)
+          return productFromDb.save();
+      })
+      .then(() => {
+
+
+          // STEP #3: redirect after a SUCCESSFUL save
+
+
+          // redirect 
+          res.redirect(`/slothboard`);
+            // you CAN'T redirect to an EJS file
+            // you can ONLY redirect to a URL
+      })
+      .catch((err) => {
+          // is this a validation error?
+          // if it is then display the form with the error messages
+          if (err.errors) {
+              res.locals.validationErrors = err.errors;
+              res.render('user-views/entry-edit-page');
+          }
+          // if it isn't then render the error page with our error
+          else {
+              next(err);
+          }
+      });
+}; // END => fetchEntryProcessEdit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 exports.fetchEntryDeleteOne = (req, res, next) => {
 
 	SlothModel.findByIdAndRemove(req.params.prodId)
@@ -131,6 +230,7 @@ exports.fetchEntryDeleteOne = (req, res, next) => {
 	  });
 
 }; // END "GET" --> Fetch Entry Delete One
+
 
 
 
