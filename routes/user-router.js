@@ -14,13 +14,19 @@ router.get('/signup', controller.signup );
 
 
 // STEP #2: process the sign up form
-router.post('/process-signup', controller.process_signup );
+router.post('/process-signup',controller.process_signup );
+
+
+// controller.validateRegister, 
 
 
 
+/*
 
 // STEP #1: show the LOGIN form
 router.get('/', controller.login );
+
+*/
 
 
 

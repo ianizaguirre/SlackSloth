@@ -1,6 +1,7 @@
 "use strict";
 
 const express      = require('express');
+
 const path         = require('path');
 const favicon      = require('serve-favicon');
 const logger       = require('morgan');
@@ -8,9 +9,12 @@ const cookieParser = require('cookie-parser');
 const bodyParser   = require('body-parser');
 const layouts      = require('express-ejs-layouts');
 
+const flash = require('connect-flash');
 const expressValidator = require('express-validator');
 
 const session 		 = require("express-session");
+const mongoose = require('mongoose');
+const MongoStore = require('connect-mongo')(session);
 const passport 		 = require("passport");
 
 
@@ -32,6 +36,9 @@ app.set('view engine', 'ejs');
 app.locals.title = 'Slack Sloth';
 
 
+
+
+
 /* ----------- Global MiddleWare ------------------ */
 
 // Exposes a bunch of methods for validating data. 
@@ -48,17 +55,39 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(layouts);
 
 
-app.use(
-        session ({
-        resave: true,
-        saveUninitialized: true,
-        secret: "this string is to avoid a depreciation warning"
-    })
-);
+// app.use(
+//         session ({
+//         resave: true,
+//         saveUninitialized: true,
+//         secret: "this string is to avoid a depreciation warning"
+//     })
+// );
+
+
+// Sessions allow us to store data on visitors from request to request
+// This keeps users logged in and allows us to send flash messages
+app.use(session({
+  secret: "this string is to avoid a depreciation warning",
+  key: process.env.KEY,
+  resave: false,
+  saveUninitialized: false,
+  store: new MongoStore({ mongooseConnection: mongoose.connection })
+}));
+
+
+
+
 
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+
+
+
+
+// // The flash middleware let's us use req.flash('error', 'Shit!'), which will then pass that message to the next page the user requests
+app.use(flash());
 
 
 app.use((req, res, next) => {

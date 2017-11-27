@@ -6,6 +6,37 @@ const router = express.Router();
 const UserModel = require("../models/user-model");
 
 
+/*
+// ======= Express Validator , some properties. 
+//========= It does not need to be imported to use
+// ----- making some Validation Middleware 
+
+exports.validateRegister = (req, res, next ) => {
+  req.sanitizeBody('fullName');
+  req.checkBody('fullName', 'You must supply a name!').notEmpty();
+  req.checkBody('email', 'That Email is not valid').isEmail();
+  req.sanitizeBody('email').normalizeEmail({
+    remove_dots: false,
+    remove_extension: false,
+    gmail_remove_subaddress: false
+  });
+  req.checkBody('encryptedPassword', 'Password Cannot be Blank!').notEmpty();
+
+  const errors = req.validationErrors();
+  if (errors) {
+    req.flash('error', errors.map(err => err.msg));
+
+    res.render("user-views/signup-page", {message: req.flash("error") });
+    return; // stop the fn from running
+  }
+  next(); // there were no errors!
+};
+
+
+// ==========================
+
+*/
+
 // Step #1: Show the SIGNUP form
 exports.signup = (req, res) => {
     // redirect to home if you are already logged in
@@ -23,13 +54,25 @@ exports.signup = (req, res) => {
 
 // STEP #2: process the sign up form
 exports.process_signup = (req, res, next) => {
+
+  const password = req.body.signupPassword;
+  const email = req.body.signupEmail;
+  const name = req.body.signupFullName;
+
+    if (password === "" || email === "" || name === "") 
+    {
+    res.locals.errorMessage = "Indicate a Name, Email, and Password";
+    res.render("user-views/signup-page");
+    return;
+    }
+
 	// check if password is invalid
-	if (req.body.signupPassword.length < 5 ||
-	    req.body.signupPassword.match(/[^a-z0-9]/i) === null
-	) {                          //          |
+	if (password.length < 5 ||
+	    password.match(/[^a-z0-9]/i) === null)
+  {                          //          |
 	                             // if no special characters
 	    // display the form again if it is
-	    res.locals.errorMessage = "Password is invalid.";
+	    res.locals.errorMessage = "Password is invalid. Add a special character like @";
 	    res.render("user-views/signup-page");
 
 	    // early return to stop the function since there's an error
@@ -83,7 +126,7 @@ exports.process_signup = (req, res, next) => {
 
 
 
-
+/*
 
 // STEP #1: show the LOGIN form
 exports.login = (req, res) => {
@@ -100,7 +143,7 @@ exports.login = (req, res) => {
   // res.render("user-views/login-page");
 };
 
-
+*/
 
 // STEP #2: process the log in form
 exports.process_login = (req, res, next) => {
@@ -143,8 +186,8 @@ exports.process_login = (req, res, next) => {
                 next(err);
             }
             else {
-                // if it worked redirect to the home page
-                res.redirect("/");
+                // if it worked redirect to the Users Dashboard page
+                res.redirect("/slothboard");
             }
         }); // req.login()
     }) // then()
