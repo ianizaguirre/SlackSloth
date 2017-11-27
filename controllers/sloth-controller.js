@@ -11,18 +11,6 @@ const mongoose = require("mongoose");
 
 
 
-exports.dashboard = (req, res) => {
-
-    if (!req.user) {
-        res.redirect("/");
-
-
-        // (prevents the rest of the code from running)
-        return;
-    }
-
-  res.render('user-views/dashboard');
-};
 
 
 
@@ -68,7 +56,8 @@ exports.createSlothModel = (req, res, next) => {
 	    const slackEntry = new SlothModel({
 	        slackTeamURL: 		 req.body.slackTeamURL,
 	        slackTeamEmail:    req.body.slackTeamEmail,
-	        encryptedPassword: scrambledPassword
+	        encryptedPassword: req.body.slackTeamPassword,
+	        user_id: 					 req.user._id
 	    });
 	    /* ======================================================= */
 
@@ -117,6 +106,15 @@ exports.createSlothModel = (req, res, next) => {
 
 exports.fetchEntry = (req, res, next) => {
 
+
+    if (!req.user) {
+        res.redirect("/");
+
+
+        // (prevents the rest of the code from running)
+        return;
+    }
+
 	SlothModel
 		.find()
 		.limit(25)
@@ -125,10 +123,16 @@ exports.fetchEntry = (req, res, next) => {
 		.then((slackEntryResultsList) => {
 			// Setup above "slackEntry" RESULTS as a local variable for the EJs file
 	    res.locals.slackEntry = slackEntryResultsList;
+
+
+	    console.log('==========================');
+			console.log('It Worked *****FETCH ENTRY******!');
+			console.log(slackEntryResultsList);
+			console.log('==========================');
 			
 
 			// render only after the results have been retrieved
-  		res.render('/slothboard');
+  		res.render('user-views/dashboard');
 
 	})
   .catch((err) => {

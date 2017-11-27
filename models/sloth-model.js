@@ -1,7 +1,7 @@
 "use strict";
 const mongoose  = require("mongoose");
 
-const UserModel = require("./user-model");
+
 const Schema    = mongoose.Schema;
 
 
@@ -38,7 +38,7 @@ const slothSchema = new Schema(
 
     user_id: { 
     type: Schema.Types.ObjectId, 
-    ref: "UserModel"
+    ref: "User" // name of collection
     //required: true
   }
 

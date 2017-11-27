@@ -38,15 +38,10 @@ const userSchema = new Schema(
       },
 
 
-      encryptedPassword: { type: String },
+      encryptedPassword: { type: String }
 
 
-      role: {
-          type: String,
-          // role can only be "normal" or "admin"
-          enum: ["normal", "admin"],
-          default: "normal"
-      }
+
   },
 
   // 2nd argument -> SETTINGS object
