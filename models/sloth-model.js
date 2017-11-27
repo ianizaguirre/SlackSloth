@@ -38,7 +38,7 @@ const slothSchema = new Schema(
 
     user_id: { 
     type: Schema.Types.ObjectId, 
-    ref: "User" // name of collection
+    ref: "User" // Has to be name of collection in user-model
     //required: true
   }
 

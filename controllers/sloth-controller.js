@@ -12,31 +12,6 @@ const mongoose = require("mongoose");
 
 
 
-
-
-
-
-/* 
-exports.createSlothModel = (req, res, next) => {
-	const slackEntry = new SlothModel(req.body);
-
-		slackEntry
-			.save()
-			.then(slackEntry => {
-				//res.json(slackEntry);
-			})
-	 		.catch(err => {
-	 			throw Error(err);
-	 		});
-	 	
-	console.log('It Worked!');
-
-
-
-}; // POST /createSlackModel Entry
-*/
-
-
 exports.createSlothModel = (req, res, next) => {
 
 		// query the database to see if the URL is taken
@@ -94,14 +69,6 @@ exports.createSlothModel = (req, res, next) => {
 
 
 
-// exports.createSlothModel = async (req, res ) => {
-// 	const slackEntry = new SlothModel(req.body);
-// 	await slackEntry.save();
-// 	console.log('It Worked!');
-
-// }; // POST /createSlackEntry
-
-
 
 
 exports.fetchEntry = (req, res, next) => {
@@ -110,10 +77,11 @@ exports.fetchEntry = (req, res, next) => {
     if (!req.user) {
         res.redirect("/");
 
-
         // (prevents the rest of the code from running)
         return;
     }
+
+
 
 	SlothModel
 		.find()
@@ -121,7 +89,7 @@ exports.fetchEntry = (req, res, next) => {
 		.sort({ dateAdded: -1 })
 		.exec()
 		.then((slackEntryResultsList) => {
-			// Setup above "slackEntry" RESULTS as a local variable for the EJs file
+			// Setup "slackEntry" RESULTS as a local variable for the EJs file
 	    res.locals.slackEntry = slackEntryResultsList;
 
 
@@ -145,6 +113,24 @@ exports.fetchEntry = (req, res, next) => {
 
 
 
+
+
+
+exports.fetchEntryDeleteOne = (req, res, next) => {
+
+	SlothModel.findByIdAndRemove(req.params.prodId)
+	  .then((slackEntryResultsList) => {
+
+	      // redirect
+	      res.redirect("/slothboard");
+	        // you CAN'T redirect to an EJS file
+	        // you can ONLY redirect to a URL
+	  })
+	  .catch((err) => {
+	      next(err);
+	  });
+
+}; // END "GET" --> Fetch Entry Delete One
 
 
 

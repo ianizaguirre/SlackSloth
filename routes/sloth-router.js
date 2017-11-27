@@ -10,14 +10,8 @@ const controller = require('../controllers/sloth-controller');
 
 
 
-// Step #1: Show the Slack Entry Form
 
-// Show the User Dashboard, if they are logged in.
-router.get('/slothboard', controller.fetchEntry );
-
-
-
-// Step #2: Process the new Slack Entry Submission 
+// Step: Process the new Slack Entry Submission 
 
 // Creates a "Slack Entry" 
 // When user input data and clicks "save", 
@@ -26,16 +20,21 @@ router.post('/process-slackInfoForm', controller.createSlothModel );
 
 
 
+// ===================================
+
+
+// Step: Fetch the Slack Entry Forms of the user
+
+// Show the User Dashboard, if they are logged in.
+router.get('/slothboard', controller.fetchEntry );
 
 
 
 
 
 
-
-
-
-
+// Allow Users to Delete One Entry From "Fetch Entry" via Delete Button
+router.get('/slothboard/:prodId/delete', controller.fetchEntryDeleteOne );
 
 
 

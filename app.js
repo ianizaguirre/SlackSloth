@@ -18,6 +18,9 @@ const MongoStore       = require('connect-mongo')(session);
 const passport         = require("passport");
 
 
+// Load environment variables from the ".env" file
+// (Put this before the setup files ,since this defines environment variables)
+require("dotenv").config();
 
 /* --- Run this without needing to call it ---- */
 require("./config/mongoose-setup");
