@@ -1,14 +1,32 @@
-<div class="contain-page">
-	<h2> SlothBoard </h2>
 
+
+<section>
+	<div class="entry-block bg-overlay">
+		<div class="start-wrapper not-trans">
+			<div class="info-form-card-style">
+				
+					<div class="title-card-style-wrap">
+						<h3 class="title-card-style"> Add </h3>
+					</div>
+
+	 			<%- include('../mixins/_slackInfoForm'); %>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+<div class="contain-page">
+
+	 <br />
 	 Hello <%= currentUser.fullName %>
+	 <br />
 	 Email: <%= currentUser.email %>
 	 <br />
-	 <br />
 
-
-	 <%- include('../mixins/_slackInfoForm'); %>
-	
 
 
 	<%- include('../mixins/_slackEntryList'); %>
@@ -18,6 +36,7 @@
 	 <br />
 	 <br />
 	 <br />
+
 
 
 	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod

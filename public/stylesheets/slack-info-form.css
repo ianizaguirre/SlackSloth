@@ -1,3 +1,45 @@
+.not-trans {
+	position: relative;
+}
+
+.title-card-style-wrap {
+    background: #f6f6f6;
+    border-radius: 2px;
+    display: inline-block;
+}
+.title-card-style {
+    margin: 0;
+    color: #666;
+    opacity: .5;
+    line-height: 2;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+.info-form-card-style {
+	width: 75%; /* relate to info-top-and-bottom-wrap - Max-Width property */
+
+  padding-top: 23px;
+  padding-bottom: 30px;
+
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all .2s ease-out;
+}
+
+.info-form-card-style:hover {
+	transform: scale(1.02);
+	/*transition: background-color .1s ease-out;*/
+	box-shadow: 0 0 40px rgba(0,0,0,.15);
+	background-color: #fff;
+}
+
+/* ==========
+====== Form
+ ============= */
+
 .info-form-container {
 	justify-content: center;
 }
@@ -15,6 +57,9 @@
   padding: 10px 10px 15px 10px;
   justify-content: center;
 }
+.info-form-top input {
+    width: 60%;
+}
 
 .info-form-bottom {
 	flex: 1 0 50%;
@@ -25,7 +70,9 @@
 
 
 .slack-save-btn-wrap {
-	
+	align-self: center;
+
+	padding-right: 21px;
 }
 
 .info-email-wrap {
