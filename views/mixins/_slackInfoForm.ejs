@@ -1,19 +1,47 @@
+<form method="post" action="/process-slackInfoForm">
+	<div class="flex-container info-form-container">
+
+
+		<div class="flex-container info-top-and-bottom-wrap">
 
 
 
-	<form method="post" action="/process-slackInfoForm">
-		
-	  <label for="url-input"> Slack Team URL </label>
-    <input  id="url-input" type="text" placeholder="wynwood-tech" name="slackTeamURL"/>.Slack.com
+			<div class="flex-container info-form-top">	
+			  <label for="url-input"> Slack Team URL </label>
+		    <input  id="url-input" type="text" placeholder="wynwood-tech" name="slackTeamURL"/>
+		    	<div class="slackDotCom">.Slack.com</div>
+		  </div> <!-- info-form-top -->
 
-    <br />
+		    
 
-		<label for="email-input"> Email </label>
-		<input id="email-input" type="email" name="slackTeamEmail">
 
-		<label for="password-input"> Password </label>
-		<input id="password-input" type="password" name="slackTeamPassword">
+			<div class="flex-container info-form-bottom">
 
-		<button>Save Slack Entry</button>
+				<div class="flex-container info-email-wrap">
+					<label for="email-input"> Email </label>
+					<input id="email-input" type="email" name="slackTeamEmail">
+				</div> <!-- info-email-wrap -->
 
-	</form>
+
+
+				<div class="flex-container info-password-wrap">
+					<label for="password-input"> Password </label>
+					<input id="password-input" type="password" name="slackTeamPassword">
+				</div> <!--  info-password-wrap -->
+
+			</div> <!-- info-form-bottom -->
+
+
+
+
+		</div> <!-- info-top-and-bottom-wrap -->
+
+		<div class="flex-container slack-save-btn-wrap">
+			<button>Save Slack Entry</button>
+	</div>
+
+
+	</div> <!-- info-form-wrapper -->
+</form>
+
+

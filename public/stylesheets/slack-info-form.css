@@ -1,0 +1,55 @@
+.info-form-container {
+	justify-content: center;
+}
+
+.info-top-and-bottom-wrap {
+	max-width: 680px;
+
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.info-form-top {
+	flex: 0 1 100%;
+  text-align: center;
+  padding: 10px 10px 15px 10px;
+  justify-content: center;
+}
+
+.info-form-bottom {
+	flex: 1 0 50%;
+  text-align: center;
+  padding: 10px;
+  justify-content: space-evenly;
+}
+
+
+.slack-save-btn-wrap {
+	
+}
+
+.info-email-wrap {
+
+}
+
+.info-password-wrap {
+
+}
+
+.info-form-container input {
+	font-size: 18px;
+}
+
+
+
+
+.info-form-container label {
+  align-self: baseline;
+  padding: 12px;
+}
+.slackDotCom {
+	display: flex;
+  align-self: center;
+  margin-left: 10px;
+  font-weight: 300;
+}

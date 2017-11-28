@@ -19,6 +19,10 @@ a, a:visited{
     transition: all 0.1s linear;
 }
 
+button {
+  cursor: pointer;
+}
+
 .header-wrapper {
 	justify-content: space-between;
 	align-items: center;
