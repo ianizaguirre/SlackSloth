@@ -1,0 +1,71 @@
+
+
+.slack-entry-grid {
+  width: 85%;
+  margin: 0 auto;
+}
+.adjust-grid-position {
+	margin: 60px auto 80px auto;
+}
+
+h2.slack-entry-grid-head {
+	margin: 29px auto 45px auto;
+}
+h2.slack-entry-grid-head::first-letter {
+  text-transform: capitalize;
+}
+
+/* ==========
+==== Card style 
+ ========= */
+.entry-card-shell {
+	padding: 23px 27px;
+	margin-bottom: 35px;
+	background: #fff;
+	box-shadow: 3px 3px 10px rgba(0,0,0,.15);
+	overflow: auto;
+	width: 100%;
+	transition: all .2s ease-out;
+}
+
+.entry-card-shell:hover {
+	transform: scale(1.02);
+  box-shadow: 0 0 40px rgba(0,0,0,.15);
+}
+
+
+
+
+.card-line-thick {
+	border-bottom: 2px solid #ddd;
+}
+.card-line {
+	border-bottom: 1px solid #ddd;
+}
+/* ==========
+==== Flex style 
+ ========= */
+.inline-flex-container {
+	display: inline-flex;
+}
+
+
+.entry-card-wrap {
+  margin-right: 35px;
+	flex-wrap: wrap;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+
+
+.entry-card-btn-container {
+	justify-content: space-between;
+}
+
+
+
+
+
+
+

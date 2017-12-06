@@ -1,30 +1,40 @@
-<h2> Your Current Slack Entry List </h2>
+<div class="adjust-grid-position slack-entry-grid">
+  <h2 class="slack-entry-grid-head"> <%= currentUser.fullName %>: Current Slack Entry List </h2>
+
+    <% slackEntry.forEach((oneEntry) => { %>
+      <div class="inline-flex-container entry-card-wrap">
+        <div class="entry-card-shell">
+        
+
+         
+          <span class="card-label"> Team URL </span>
+          <div class="card-line-thick"></div>
+          <h3> 
+            <%= oneEntry.slackTeamURL %> <span class="card-label">.Slack.com </span>
+          </h3>
+
+         
+          
+          <span class="card-label"> Email </span>
+          <div class="card-line"></div>
+
+          <p>  <%= oneEntry.slackTeamEmail %> </p>
+          
+
+          <span class="card-label"> Password </span>
+          <div class="card-line"></div>
+          <p> <%= oneEntry.encryptedPassword %> </p>
+
+          <div class="flex-container entry-card-btn-container ">
+            <a class="sqr-btn a-btn a-trans-btn a-green-hov " href="/entrys/<%= oneEntry._id %>/edit">Edit</a>
+            
+            <a class="sqr-btn a-btn a-trans-btn a-bad-hov " href="/entrys/<%= oneEntry._id %>/delete">Delete </a>
+          </div> <!-- flex-container --> 
+
+        </div> <!-- entry-card-shell -->
+      </div> <!-- flex-container --> 
 
 
 
-<ul>
-  <% slackEntry.forEach((oneEntry) => { %>
-    <li>
-      <h3> Team URL: <%= oneEntry.slackTeamURL %>.Slack.com </h3>
-      <p> Email: <%= oneEntry.slackTeamEmail %> </p>
-      <p> Password: <%= oneEntry.encryptedPassword %> </p>
-      
-      <ul>
-
-        <li>
-          <a href="/entrys/<%= oneEntry._id %>/edit">
-            Edit
-          </a>
-        </li>
-
-        <li>
-          <a href="/entrys/<%= oneEntry._id %>/delete">
-            Delete
-          </a>
-        </li>
-
-
-      </ul>
-    </li>
-  <% }) %>
-</ul>
+    <% }) %>
+</div> <!-- slack-entry-grid -->
