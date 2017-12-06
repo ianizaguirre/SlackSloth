@@ -64,8 +64,29 @@ h2.slack-entry-grid-head::first-letter {
 }
 
 
+/* ==========
+==== Card Labels 
+ ========= */
+.card-labels-url-wrap {
+	margin: 30px auto 30px auto;
+}
+.card-labels-email-wrap {
+	margin: 30px auto 30px auto;
+}
+.card-labels-pass-wrap {
+	margin: auto auto 29px auto;
+}
 
 
+span.card-label {
+	font-weight: 700;
+}
+span.card-label-url {
+	font-weight: 400;
+}
+span.card-label-dot-slack {
+	font-weight: 300;
+}
 
 
 
