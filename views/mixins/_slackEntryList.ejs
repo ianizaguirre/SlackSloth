@@ -1,52 +1,78 @@
-<div class="adjust-grid-position slack-entry-grid">
-  <h2 class="slack-entry-grid-head"> <%= currentUser.fullName %>: Current Slack Entry List </h2>
+<div class="adjust-grid-position-wrap">
 
-    <% slackEntry.forEach((oneEntry) => { %>
-      <div class="inline-flex-container entry-card-wrap">
-        <div class="entry-card-shell">
-        
+    <h2 class="slack-entry-grid-head"> <%= currentUser.fullName %>, Your Current Slack List: </h2>
 
-         
-          <span class="card-label"> Team URL </span>
-          <div class="card-line-thick"></div>
+
+  <div class=" slack-entry-grid">
+
+      <% slackEntry.forEach((oneEntry) => { %>
+        <div class="inline-flex-container entry-card-wrap">
+          <div class="entry-card-shell">
           
 
-          <div class="card-labels-url-wrap">
+           <label for="website">
+              <span class="card-label"> Team URL </span>
+            </label>
+
+            <div class="card-line-thick"></div>
             
 
-            <span class="card-label-url"><%= oneEntry.slackTeamURL %></span>
-            <span class="card-label-dot-slack">.Slack.com </span>
+            <div class="flex-container card-labels-url-wrap">
+              
+             
+                <span class="card-label-url">
+                  <input class="website-clippy" type="text" id="website<%= oneEntry._id %>" 
+                  value=" <%= oneEntry.slackTeamURL %>" 
+                  readonly /> 
+                </span>
+              
 
-         </div> <!-- card-labels-url-wrap -->
+              <button class="clippy" data-copytarget="#website<%= oneEntry._id %>">copy</button>
+              <!-- <span class="card-label-dot-slack">.Slack.com </span> -->
 
-         
-        <div class="card-labels-email-wrap">
-          <span class="card-label"> Email </span>
-          <div class="card-line"></div>
+           </div> <!-- card-labels-url-wrap -->
 
-          <p>  <%= oneEntry.slackTeamEmail %> </p>
-        </div> <!-- card-labels-email-wrap -->
-          
+           
+          <div class="card-labels-email-wrap">
+            <span class="card-label"> Email </span>
+            <div class="card-line"></div>
 
-
-        <div class="card-labels-pass-wrap">
-          <span class="card-label"> Password </span>
-          <div class="card-line"></div>
-          <p> <%= oneEntry.encryptedPassword %> </p>
-        </div> <!-- card-labels-pass-wrap -->
-
-        
-
-          <div class="flex-container entry-card-btn-container ">
-            <a class="sqr-btn a-btn a-trans-btn a-green-hov " href="/entrys/<%= oneEntry._id %>/edit">Edit</a>
+            <p>  <%= oneEntry.slackTeamEmail %> </p>
+          </div> <!-- card-labels-email-wrap -->
             
-            <a class="sqr-btn a-btn a-trans-btn a-bad-hov " href="/entrys/<%= oneEntry._id %>/delete">Delete </a>
-          </div> <!-- flex-container --> 
-
-        </div> <!-- entry-card-shell -->
-      </div> <!-- flex-container --> 
 
 
+          <div class="card-labels-pass-wrap">
+            <span class="card-label"> Password </span>
+            <div class="card-line"></div>
 
-    <% }) %>
-</div> <!-- slack-entry-grid -->
+                <a class="pass-box"> 
+                    <div class="content">
+                      <h3 class="view-pass-question">
+                          View <i class="fa fa-eye"></i>
+                      </h3> <!-- view-pass-question -->
+                        <p class="password-text">
+                          <%= oneEntry.encryptedPassword %>     
+                        </p> <!-- password-text -->
+                    </div> <!-- content -->
+                </a> <!--  pass-box -->
+
+          </div> <!-- card-labels-pass-wrap -->
+
+
+
+            <div class="flex-container entry-card-btn-container ">
+              <a class="sqr-btn a-btn a-trans-btn a-green-hov " href="/entrys/<%= oneEntry._id %>/edit">Edit</a>
+              
+              <a class="sqr-btn a-btn a-trans-btn a-bad-hov " href="/entrys/<%= oneEntry._id %>/delete">Delete </a>
+            </div> <!-- flex-container --> 
+
+          </div> <!-- entry-card-shell -->
+        </div> <!-- flex-container --> 
+
+
+
+      <% }) %>
+  </div> <!-- slack-entry-grid -->
+
+</div> <!-- adjust-grid-position-wrap -->

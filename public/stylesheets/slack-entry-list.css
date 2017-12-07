@@ -1,15 +1,19 @@
-
-
-.slack-entry-grid {
-  width: 85%;
-  margin: 0 auto;
-}
-.adjust-grid-position {
+.adjust-grid-position-wrap {
 	margin: 60px auto 80px auto;
 }
 
+
+
+.slack-entry-grid {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
 h2.slack-entry-grid-head {
 	margin: 29px auto 45px auto;
+	text-align: center;
 }
 h2.slack-entry-grid-head::first-letter {
   text-transform: capitalize;
@@ -80,13 +84,90 @@ h2.slack-entry-grid-head::first-letter {
 
 span.card-label {
 	font-weight: 700;
+	font-size: 15px;
 }
 span.card-label-url {
 	font-weight: 400;
+	font-size: 15px;
 }
 span.card-label-dot-slack {
 	font-weight: 300;
+	font-size: 15px;
+	font-style: italic;
+
+	align-self: flex-end;
+	margin-left: 8px;
 }
+
+
+/* ==========
+==== Hover To See Password
+ ========= */
+
+
+
+ a.pass-box {
+ 	color: rgba(0, 19, 0, 0.75);
+  background-color: #FCFCFC;
+  display: block;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  border: 1px solid #C8C8C8;
+  position: relative;
+  cursor: pointer;
+ }
+ a.pass-box:hover, .content:hover {
+ 	transition: all .2s ease;
+ }
+
+ .content {
+ 	position: absolute;
+ 	bottom: 0;
+ 	right: 0;
+ 	top: 0;
+ 	width: 100%;
+ 	margin: auto;
+ 	text-align: center;
+ 	z-index: 2;
+ 	height: 1.5em;
+ 	transition: all .2s ease;
+ }
+
+ a.pass-box:hover .content {
+ 	height: 5em;
+ }
+
+ h3.view-pass-question {
+ 	margin: 0 0 7px 0;
+ 	font-size: 20px;
+ 	letter-spacing: 1px;
+ }
+
+.password-text {
+	height: 0;
+	opacity: 0;
+	visibility: hidden;
+	line-height: 1.5em;
+	margin: 0 auto;
+ }
+
+ 
+ a.pass-box:hover .password-text{
+ 	height: 3em;
+ 	opacity: 1;
+ 	visibility: visible;
+ 	transition: all .2s ease;
+ }
+
+
+
+
+
+
+
+
+
 
 
 
