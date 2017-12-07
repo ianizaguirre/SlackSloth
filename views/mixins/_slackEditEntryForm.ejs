@@ -1,3 +1,4 @@
+
 <h2> Edit This Entry </h2>
 
 <!-- weird if statement with "typeof" to avoid an error -->
@@ -13,27 +14,52 @@
 
 
 <form method="post" action="/entrys/<%= entryDetails._id %>">
-
-  <label for="url-input"> Slack Team URL </label>
-  <input  id="url-input" type="text" placeholder="wynwood-tech" name="slackTeamURL" value="<%= entryDetails.slackTeamURL %>" />.Slack.com
-
-  <br />
-
-  <label for="email-input"> Email </label>
-  <input id="email-input" type="email" name="slackTeamEmail" value="<%= entryDetails.slackTeamEmail %>" />
+  <div class="flex-container info-form-container">
 
 
-  <br />
-
-  <label for="password-input"> Password </label>
-  <input id="password-input" type="password" name="slackTeamPassword" value="<%= entryDetails.encryptedPassword %>" />
+    <div class="flex-container info-top-and-bottom-wrap">
 
 
 
-  <br />
+      <div class="flex-container info-form-top">  
+        <label for="url-input"> Team URL </label>
+        <input  id="url-input" type="text" placeholder="wynwood-tech" name="slackTeamURL" value="<%= entryDetails.slackTeamURL %>" />
+          <div class="slackDotCom">.Slack.com</div>
+      </div> <!-- info-form-top -->
 
-  <button> Save Changes </button>
+        
+
+
+      <div class="flex-container info-form-bottom">
+
+        <div class="flex-container info-email-wrap">
+          <label for="email-input"> Email </label>
+          <input id="email-input" type="email" name="slackTeamEmail" value="<%= entryDetails.slackTeamEmail %>" />
+        </div> <!-- info-email-wrap -->
+
+
+
+        <div class="flex-container info-password-wrap">
+          <label for="password-input"> Password </label>
+          <input id="password-input" type="password" name="slackTeamPassword" value="<%= entryDetails.encryptedPassword %>" />
+        </div> <!--  info-password-wrap -->
+
+      </div> <!-- info-form-bottom -->
+
+
+
+
+    </div> <!-- info-top-and-bottom-wrap -->
+
+    <div class="flex-container slack-save-btn-wrap">
+      <button class=" green-btn circle-btn btn"> <i class="fa fa-plus-circle" aria-hidden="true"></i> </button>
+  </div>
+
+
+  </div> <!-- info-form-wrapper -->
 </form>
+
+
 
 
 

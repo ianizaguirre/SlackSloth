@@ -99,12 +99,23 @@ span.card-label-dot-slack {
 	margin-left: 8px;
 }
 
+.slack-team-email-card-txt:before {
+	font-family: FontAwesome;
+	content: "\f1fa";   /*f0e0*/
+	color: #F8582F;
+	opacity: 0.6;
+	font-weight: 600;
+}
+
+.slack-team-email-card-txt {
+	letter-spacing: 1px;
+}
+
+
 
 /* ==========
 ==== Hover To See Password
  ========= */
-
-
 
  a.pass-box {
  	color: rgba(0, 19, 0, 0.75);
