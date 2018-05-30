@@ -3,8 +3,8 @@
 &nbsp;
 
 # Context
-**SlackSloth** is an Express application which helps users of Slack keep track of long
-team URL names/password combinations, so they can have an easier time remembering that information when wanting to sign into there Slack teams on a different computer.
+**SlackSloth** is an Express application that helps users of Slack keep track of long
+team URL names/password combinations.
 
 ---
 &nbsp;
