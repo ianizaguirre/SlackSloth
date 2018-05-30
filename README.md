@@ -33,3 +33,5 @@ team URL names/password combinations.
 # View Project
 To view this application live, please click the following link:
 * [View Project](https://slack-sloth.herokuapp.com/)
+
+&nbsp;
