@@ -7,7 +7,7 @@
     "reload": "nodemon ./bin/www"
   },
   "engines": {
-    "node": "8.9.4"
+    "node": "7.9.4"
   },
   "dependencies": {
     "bcrypt": "^1.0.3",
