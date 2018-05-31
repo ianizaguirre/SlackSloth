@@ -2,36 +2,46 @@
 
 &nbsp;
 
-# Context
-**SlackSloth** is an Express application that helps users of Slack keep track of long
+## Context
+**SlackSloth** helps users of Slack keep track of long
 team URL names/password combinations.
 
----
+* **SlackSloth** is an Express Application
+
 &nbsp;
+
+---
 
 ## Features
+
 * Includes sign-up / sign-in / sign-out functionality, with encrypted passwords & an authorization flow
-*  Full CRUD routes
-*  Utilizes Mongoose to create models
-*  Deployed online and accessible to the public
+* Full CRUD routes
+* Utilizes Mongoose to create models
 
 &nbsp;
 
-## Tech Details
+##### Deployment Details
+
+* Deployed online and accessible to the public
+* Deployed using [Heroku](https://heroku.com)
+
+&nbsp;
+
+#### Tech Details
+
 * MongoDB
 * Express.js
 * Node.js
 
-&nbsp;
-
-### Deployment Details
-* Deployed to Heroku
-
 
 &nbsp;
 
-# View Project
-To view this application live, please click the following link:
+---
+
+## Project Demo
+
+To demo this application, please click the following link:
+
 * [View Project](https://slack-sloth.herokuapp.com/)
 
 &nbsp;
