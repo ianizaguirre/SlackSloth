@@ -42,6 +42,6 @@ team URL names/password combinations.
 
 To demo this application, please click the following link:
 
-* [View Project](https://slack-sloth.herokuapp.com/)
+* [Start Demo](https://slack-sloth.herokuapp.com/)
 
 &nbsp;
